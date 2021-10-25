@@ -1,0 +1,8 @@
+{
+  "database": {
+    "name": "suppfitness",
+    "host": "localhost",
+    "port": "27017"
+
+  }
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit product</title>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/bootstrap-5.1.0-dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="../assets/datatable/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body dir="rtl">
+<%- include('navbar')%>
+<section id="form">
+    <div class="container">
+        <div class="login-box">
+            <form class="col-md-8">
+                <div class="form-group mt-3">
+                    <label for="productName" class="mb-1" style="margin-top:200px">نام محصول</label>
+                    <input type="text" class="form-control" id="productName" name="productName" placeholder="نام محصول...">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="productPrice" class="mb-1">قیمت محصول</label>
+                    <input type="number" class="form-control" id="productPrice" name="productPrice" placeholder="قیمت محصول...">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="category" class="mb-1">دسته محصول</label>
+                    <select class="form-control" id="category" name="category" placeholder="دسته...">
+                        <option value="">انتخاب کنید...</option>
+                        <option value="">لاغری</option>
+                        <option value="">چاقی</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="description" class="mb-1">توضیحات</label>
+                    <textarea class="form-control" id="description" name="description" rows="10"></textarea>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="specification" class="mb-1">مشخصات</label>
+                    <textarea class="form-control" id="specification" name="specification" rows="10"></textarea>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="instruction" class="mb-1">دستورالعمل</label>
+                    <textarea class="form-control" id="instruction" name="instruction" rows="10"></textarea>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="image" class="mb-1">تصویر</label>
+                    <input type="file" class="form-control" id="image" name="image" placeholder="تصویر">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">ویرایش</button>
+            </form>
+        </div>
+    </div>
+
+
+</section>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="../assets/datatable/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready( function () {
+        $('#example').DataTable({
+            language:{
+                "emptyTable": "هیچ داده‌ای در جدول وجود ندارد",
+                "info": "نمایش _START_ تا _END_ از _TOTAL_ ردیف",
+                "infoEmpty": "نمایش 0 تا 0 از 0 ردیف",
+                "infoFiltered": "(فیلتر شده از _MAX_ ردیف)",
+                "infoThousands": ",",
+                "lengthMenu": "نمایش _MENU_ ردیف",
+                "processing": "در حال پردازش...",
+                "search": "جستجو:",
+                "zeroRecords": "رکوردی با این مشخصات پیدا نشد",
+                "paginate": {
+                    "first": "برگه‌ی نخست",
+                    "last": "برگه‌ی آخر",
+                    "next": "بعدی",
+                    "previous": "قبلی"
+                },
+                "aria": {
+                    "sortAscending": ": فعال سازی نمایش به صورت صعودی",
+                    "sortDescending": ": فعال سازی نمایش به صورت نزولی"
+                },
+                "autoFill": {
+                    "cancel": "انصراف",
+                    "fill": "پر کردن همه سلول ها با ساختار سیستم",
+                    "fillHorizontal": "پر کردن سلول های افقی",
+                    "fillVertical": "پرکردن سلول های عمودی"
+                },
+                "buttons": {
+                    "collection": "مجموعه",
+                    "colvis": "قابلیت نمایش ستون",
+                    "colvisRestore": "بازنشانی قابلیت نمایش",
+                    "copy": "کپی",
+                    "copySuccess": {
+                        "1": "یک ردیف داخل حافظه کپی شد",
+                        "_": "%ds ردیف داخل حافظه کپی شد"
+                    },
+                    "copyTitle": "کپی در حافظه",
+                    "excel": "اکسل",
+                    "pageLength": {
+                        "-1": "نمایش همه ردیف‌ها",
+                        "_": "نمایش %d ردیف"
+                    },
+                    "print": "چاپ",
+                    "copyKeys": "برای کپی داده جدول در حافظه سیستم کلید های ctrl یا ⌘ + C را فشار دهید",
+                    "csv": "فایل CSV",
+                    "pdf": "فایل PDF"
+                },
+                "searchBuilder": {
+                    "add": "افزودن شرط",
+                    "button": {
+                        "0": "جستجو ساز",
+                        "_": "جستجوساز (%d)"
+                    },
+                    "clearAll": "خالی کردن همه",
+                    "condition": "شرط",
+                    "conditions": {
+                        "date": {
+                            "after": "بعد از",
+                            "before": "بعد از",
+                            "between": "میان",
+                            "empty": "خالی",
+                            "equals": "برابر",
+                            "not": "نباشد",
+                            "notBetween": "میان نباشد",
+                            "notEmpty": "خالی نباشد"
+                        },
+                        "number": {
+                            "between": "میان",
+                            "empty": "خالی",
+                            "equals": "برابر",
+                            "gt": "بزرگتر از",
+                            "gte": "برابر یا بزرگتر از",
+                            "lt": "کمتر از",
+                            "lte": "برابر یا کمتر از",
+                            "not": "نباشد",
+                            "notBetween": "میان نباشد",
+                            "notEmpty": "خالی نباشد"
+                        },
+                        "string": {
+                            "contains": "حاوی",
+                            "empty": "خالی",
+                            "endsWith": "به پایان می رسد با",
+                            "equals": "برابر",
+                            "not": "نباشد",
+                            "notEmpty": "خالی نباشد",
+                            "startsWith": "شروع  شود با"
+                        },
+                        "array": {
+                            "equals": "برابر",
+                            "empty": "خالی",
+                            "contains": "حاوی",
+                            "not": "نباشد",
+                            "notEmpty": "خالی نباشد",
+                            "without": "بدون"
+                        }
+                    },
+                    "data": "اطلاعات",
+                    "deleteTitle": "حذف عنوان",
+                    "logicAnd": "و",
+                    "logicOr": "یا",
+                    "title": {
+                        "0": "جستجو ساز",
+                        "_": "جستجوساز (%d)"
+                    },
+                    "value": "مقدار"
+                },
+                "select": {
+                    "cells": {
+                        "1": "1 سلول انتخاب شد",
+                        "_": "%d سلول انتخاب شد"
+                    },
+                    "columns": {
+                        "1": "یک ستون انتخاب شد",
+                        "_": "%d ستون انتخاب شد"
+                    },
+                    "rows": {
+                        "1": "1ردیف انتخاب شد",
+                        "_": "%d  انتخاب شد"
+                    }
+                },
+                "thousands": ",",
+                "decimal": "اعشاری",
+                "searchPanes": {
+                    "clearMessage": "همه را پاک کن",
+                    "collapse": {
+                        "0": "صفحه جستجو",
+                        "_": "صفحه جستجو (٪ d)"
+                    },
+                    "count": "{total}",
+                    "countFiltered": "{shown} ({total})",
+                    "emptyPanes": "صفحه جستجو وجود ندارد",
+                    "loadMessage": "در حال بارگیری صفحات جستجو ...",
+                    "title": "فیلترهای فعال - %d"
+                },
+                "loadingRecords": "در حال بارگذاری...",
+                "datetime": {
+                    "previous": "قبلی",
+                    "next": "بعدی",
+                    "hours": "ساعت",
+                    "minutes": "دقیقه",
+                    "seconds": "ثانیه",
+                    "amPm": [
+                        "صبح",
+                        "عصر"
+                    ]
+                },
+                "editor": {
+                    "close": "بستن",
+                    "create": {
+                        "button": "جدید",
+                        "title": "ثبت جدید",
+                        "submit": "ایجــاد"
+                    },
+                    "edit": {
+                        "button": "ویرایش",
+                        "title": "ویرایش",
+                        "submit": "به‌روزرسانی"
+                    },
+                    "remove": {
+                        "button": "حذف",
+                        "title": "حذف",
+                        "submit": "حذف"
+                    },
+                    "multi": {
+                        "restore": "واگرد"
+                    }
+
+                }
+            }
+        });
+    } );
+</script>
+</body>
+</html>

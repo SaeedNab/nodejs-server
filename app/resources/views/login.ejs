@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/bootstrap-5.1.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap-5.1.0-dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body dir="rtl">
+    <div class="container">
+        <div class="login-box">
+            <%if(error.length>0){%>
+                <strong style="color: red"><%=error%></strong>
+            <%}%>
+            <form class="form col-md-4" action="/admin/login" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="form-group mt-3">
+                    <label for="username" class="mb-1">نام کاربری</label>
+                    <input type="text" class="form-control" id="username" name="username"  placeholder="نام کاربری...">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="password" class="mb-1">کلمه عبور</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="کلمه عبور...">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">ورود</button>
+            </form>
+        </div>
+    </div>
+<script src="../assets/bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
